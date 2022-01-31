@@ -101,3 +101,36 @@ sudo jma-setup
 ここまでで、データベース構造変更処理は完了
 
 
+## プラグインの更新処理
+これは、主にスカイエスエイチ様が提供されているプラグイン（帳票）を利用していた場合に必要になる処理です。
+
+```shell
+sudo vi /etc/jma-receipt/jppinfo.list
+```
+で`jppinfo.list`に下記のように`skysh.yml`の行を加えます
+```shell:skysh.yml
+---
+:root: /var/lib/jma-receipt/plugin
+:list:
+ - http://ftp.orca.med.or.jp/pub/receipt/plugin/5.0.0/jpplist1.yml
+ - http://ftp.orca.med.or.jp/pub/receipt/plugin/5.0.0/jpplist2.yml
+ - http://www.sky.sh/orca/plugin/5.1.0/skysh.yml
+:linkprefix: /usr/local/site-jma-receipt
+:verify: true
+```
+古いプラグイン情報の削除
+```
+sudo -u orca psql orca -c "delete from tbl_plugin where name='skysh';"
+```
+キーリングの有無を確認して、なければ設定する
+```
+gpg --list-keys
+wget http://www.sky.sh/orca/plugin/skysh.pub
+gpg --import skysh.pub
+```
+
+これまでの設定を反映させるために端末をリブートします。
+```
+sudo reboot
+```
+
