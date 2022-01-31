@@ -17,14 +17,15 @@ htmlファイルはmdファイルをhtml形式に変換したものです。ブ�
 
 ## Files
 
-```Shell
-├── README.md このドキュメント
-├── img mdファイルビューワ、HTML版で表示させる画面イメージ
-│   ├── glclient_start.png
-│   └── orca51.png
-├── installORCA51.html 日レセ5.1(Ubuntu18.04)インストール手順書(HTML版)
-└── installORCA51.md 日レセ5.1(Ubuntu18.04)インストール手順書
-```
+[README.md](./README.md) このドキュメント
+
+img/ imgファイルビューワ、HTML版で表示させる画面イメージ
+   +-- glclient_start.png
+   +-- orca51.png
+
+ [installORCA51.html](./installORCA51.html) 日レセ5.1(Ubuntu18.04)インストール手順書(HTML版)
+
+ [installORCA51.md](./installORCA51.md) 日レセ5.1(Ubuntu18.04)インストール手順書
 
 ## for vscode
 
@@ -34,4 +35,5 @@ htmlファイルはmdファイルをhtml形式に変換したものです。ブ�
 - Markdown Preview Enhanced
 
 [^1]: [「日医標準レセプトソフト Ubuntu 18.04 LTS(Bionic Beaver)のインストールドキュメント(HTML版)」](https://www.orca.med.or.jp/receipt/download/bionic/bionic_install_51.html)
+
 [^2]: [自己流の手順書フォーマットを公開してみた](https://dev.classmethod.jp/articles/non-97-operation-manual/)
