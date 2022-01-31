@@ -10,6 +10,7 @@ cd $WORKDIR
 echo "作業ディレクトリ：${WORKDIR}で作業します"
 rm .git
 rm .gitignore
+sudo apt-get install gawk sed
 
 # 作業年月日変数設定
 YMD=`date +%Y%m%d`
