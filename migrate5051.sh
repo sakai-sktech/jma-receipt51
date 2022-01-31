@@ -8,7 +8,7 @@
 WORKDIR=$(cd $(dirname $0);pwd)
 cd $WORKDIR
 echo "作業ディレクトリ：${WORKDIR}で作業します"
-rm .git
+rm -rf .git
 rm .gitignore
 sudo apt-get install gawk sed
 
