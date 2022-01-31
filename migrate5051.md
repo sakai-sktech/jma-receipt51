@@ -134,3 +134,26 @@ gpg --import skysh.pub
 sudo reboot
 ```
 
+### 再起動後の処理
+1. プラグインの更新
+2. プログラム更新
+3. マスター更新
+を順に行う
+
+## マスターデータ移行処理
+
+### 保険者マスター更新
+```
+$ wget http://ftp.orca.med.or.jp/pub/etc/tools/jma-master-setup.tgz 
+$ tar xvzf jma-master-setup.tgz
+$ cd jma-master-setup
+$ sudo -u orca ./jma-master-setup -r -m 9 1
+```
+### マスターデータ移行
+```
+sudo /usr/lib/jma-receipt/patch-lib/scripts/tools/jma-migrate
+```
+
+### monsiajでマスター更新処理を行って確認
+
+
