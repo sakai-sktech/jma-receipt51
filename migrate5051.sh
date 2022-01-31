@@ -5,20 +5,23 @@
 #
 
 # 作業ディレクトリの設定
-WORKDIR=/home/ormaster/tmp
-if [[ ! -d $WORKDIR ]]; then
-  mkdir $WORKDIR
-fi
+WORKDIR=$(cd $(dirname $0);pwd)
 cd $WORKDIR
+echo "作業ディレクトリ：${WORKDIR}で作業します"
+rm .git
+rm .gitignore
 
 # 作業年月日変数設定
 YMD=`date +%Y%m%d`
 
 # ORCAデータベースバックアップ
 BACKUPFILE="pg_orca${YMD}.dmp"
+echo "ORCA DBのバックアップを行います"
 sudo -u orca pg_dump -Fc orca > $BACKUPFILE 
+echo "info: backup done ${$BACKUPFILE}"
 
 # DBスキーマチェックスクリプト取得
+echo "DBスキーマチェックスクリプトを取得して実行します"
 wget http://ftp.orca.med.or.jp/pub/etc/jma-receipt-dbscmchk.tgz
 tar xvzf jma-receipt-dbscmchk.tgz
 cd jma-receipt-dbscmchk
